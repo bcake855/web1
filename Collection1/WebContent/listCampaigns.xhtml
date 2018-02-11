@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    	xmlns:f="http://java.sun.com/jsf/core"
+    	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+	<f:view contracts="#{view.locale.language}">
+		<h1>My Actions</h1>
+		<h:form>
+			<h:dataTable value="#{campaignListProducer.campaigns}"
+				var="campaign">
+				<h:column>
+					<h:commandLink value="x"
+					actionListener="#{listCampaignsController.doDeleteCampaign(campaign)}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{campaign.name}"/>
+				</h:column>
+				<h:column>
+					<f:facet name="header">So far donated</f:facet>
+					<h:outputText value="#{campaign.amountDonatedSoFar}"/>
+				</h:column>
+				<h:column>
+					<h:commandLink value="edit"
+					action="#{listCampaignsController.doEditCampaign(campaign)}" />
+				</h:column>
+				<h:column>
+					<h:commandLink value="donationList"
+					action="#{listCampaignsController.doListDonations(campaign)}" />
+				</h:column>
+				<h:column>
+					<h:commandLink value="form"
+					action="#{listCampaignsController.doEditDonationForm(campaign)}" />
+				</h:column>
+			</h:dataTable>
+			<h:commandButton value="Add action"
+			action="#{listCampaignsController.doAddCampaign}"/>
+		</h:form>
+	</f:view>
+	
+</h:body>
+</html>

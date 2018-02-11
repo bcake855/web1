@@ -10,12 +10,13 @@ public class Donation {
 	private Double amount;
 	private String donorName;
 	private Boolean receiptRequested;
-//	private Status status;
+	private Status status;
 	private Account account;
 	
-//	public enum Status(){
-//		TRANSFERRED, IN_PROCESS;
-//	}
+	
+	public enum Status{
+		TRANSFERRED, IN_PROCESS
+	}
 	
 	public Donation(){
 		this.account = new Account();
@@ -45,13 +46,13 @@ public class Donation {
 		this.receiptRequested = receiptRequested;
 	}
 
-//	public Status getStatus() {
-//		return status;
-//	}
-//
-//	public void setStatus(Status status) {
-//		this.status = status;
-//	}
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	public Account getAccount() {
 		return account;
